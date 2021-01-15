@@ -1,0 +1,69 @@
+body {
+    background-color: #eeeeee;
+    font-size: 16px ;
+}
+.container {
+    width: 600px;
+    margin: 80px auto;
+    
+}
+.title {
+    color: red;
+    font-size: 60px;
+    text-align: center;
+}
+.listBox {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 1px 5px 10px #dddddd;
+}
+input {
+    outline: none;
+    border: none;
+}
+.header {
+    width: 100%;
+    background-color: #fff;
+}
+.addTodo {
+    width: 400px;
+    padding: 10px 0px;
+    margin-left: 15px;
+    
+}
+.item {
+    position: relative;
+    padding: 5px 0px;
+    border-bottom: 1px solid #cccccc;
+}
+.delete {
+    color: red;
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    display: none;
+}
+.active {
+    display: block;
+}
+.todo {
+    margin-left: 15px;
+    
+}
+
+.footer {
+    padding: 20px 10px 10px 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    color: #cccccc;
+}
+.footLeft {
+    width: 150px;
+}
+.footLeft span {
+    margin-right: 5px;
+}
+.footRight>span {
+    margin-right: 15px;
+}
