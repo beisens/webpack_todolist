@@ -4,7 +4,7 @@ import Item from './Item'
 export default class Main extends Component {  
 
     render() {
-        const {updateOneState,deleteTodo} = this.props;
+        const {updateOneState,deleteTodo,editTodo} = this.props;
         return (
             <div className='listBox'>    
                 {
@@ -12,7 +12,8 @@ export default class Main extends Component {
                         return (
                             <Item key={item.id} todo={item} 
                             updateOneState={updateOneState}
-                            deleteTodo={deleteTodo}/>
+                            deleteTodo={deleteTodo}
+                            editTodo={editTodo}/>
                         )
                     })
                 }

@@ -2,37 +2,28 @@ import React, {Component} from 'react'
 
 // 尾部
 export default class Footer extends Component {
+    state = {currentHandle: 'all'}
     render() {
         const {todoCount} = this.props;
+        const {currentHandle} = this.state;
         return (
             <div className='footer'>
                 <div className='footLeft'>
                     <span>{todoCount}</span>items left 
                 </div>  
                 <div className='footRight'>
-                   <span onClick={this.showAllTodo}>All</span> 
-                   <span onClick={this.showActiveTodo}>Active</span> 
-                   <span onClick={this.showFinishedTodo}>Completed</span> 
-                   <span onClick={this.clearFinishedTodo}>clearCompleted</span>
+                   <span className={currentHandle === 'all' ? 'handleActive': ''} onClick={() => this.handleClick('all')}>All</span> 
+                   <span className={currentHandle === 'active' ? 'handleActive': ''} onClick={() => this.handleClick('active')}>Active</span> 
+                   <span className={currentHandle === 'completed' ? 'handleActive': ''} onClick={() => this.handleClick('completed')}>Completed</span> 
+                   <span className={currentHandle === 'clearCompleted' ? 'handleActive': ''} onClick={() => this.handleClick('clearCompleted')}>ClearCompleted</span>
                 </div>    
-
             </div>
         )
     }
-    // 所有任务
-    showAllTodo = () => {
-        this.props.showAllTodo();
-    }
-    // 未完成
-    showActiveTodo = () => {
-        this.props.showActiveTodo()
-    }
-    // 完成
-    showFinishedTodo = () => {
-        this.props.showFinishedTodo()
-    }
-    // 清除已完成的任务
-    clearFinishedTodo = () => {
-        this.props.clearFinishedTodo()
+    handleClick = (flag) => {
+        this.props.showTodo(flag)
+        this.setState({
+            currentHandle: flag
+        })
     }
 }

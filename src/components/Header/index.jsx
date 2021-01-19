@@ -5,7 +5,7 @@ export default class Header extends Component {
         const {keyCode,target:{value}} = event;
         if(keyCode === 13) {
             // 给父组件添加todo
-            let todo = {id: +new Date(), title: value, isFinished: false};
+            let todo = {id: +new Date(), title: value, isFinished: false,isShow: true};
             // 触发父组件中的事件
             this.props.addTodo(todo);
             // 清空添加任务项
@@ -13,9 +13,14 @@ export default class Header extends Component {
         }
     }
     render() {
-        const {isAllFinished} = this.props;
+        const {isAllFinished,advanceTodoLength,backTodoLength} = this.props;
         return (
             <div className='header'>
+                <div className='operation'>
+                    <button className={advanceTodoLength > 0 ? 'advanceActive' : 'advance'} onClick={() => this.props.handleHistory(true)}></button>
+                    <button className={backTodoLength > 0 ? 'backActive' : 'back'} onClick={() => this.props.handleHistory(false)}></button>
+                    
+                </div>
                 <input type="checkbox" checked={isAllFinished} onChange={this.updateAllState}/>
                 <input onKeyDown={this.addTodo} type="text" className='addTodo' placeholder='What need to be done?'/>
             </div>
